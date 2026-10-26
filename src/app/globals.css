@@ -1,0 +1,56 @@
+@import "tailwindcss";
+
+@theme {
+  --color-leaf-50: #f2f8f1;
+  --color-leaf-100: #e0efdd;
+  --color-leaf-200: #c2dfbd;
+  --color-leaf-300: #98c790;
+  --color-leaf-400: #6bab62;
+  --color-leaf-500: #4a8f42;
+  --color-leaf-600: #367233;
+  --color-leaf-700: #2b5a2a;
+  --color-leaf-800: #244823;
+  --color-leaf-900: #1e3b1e;
+  --color-soil-50: #faf7f2;
+  --color-soil-100: #f2ebdf;
+  --color-soil-200: #e4d6c0;
+  --color-soil-300: #d0b996;
+  --color-soil-400: #b9986c;
+  --color-soil-500: #a07f52;
+  --color-soil-600: #846543;
+  --color-soil-700: #6a5038;
+  --font-sans: var(--font-geist-sans), ui-sans-serif, system-ui, sans-serif;
+}
+
+html,
+body {
+  background: #f7faf6;
+  color: #1e3b1e;
+  -webkit-font-smoothing: antialiased;
+}
+
+@keyframes fade-up {
+  from {
+    opacity: 0;
+    transform: translateY(10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.animate-fade-up {
+  animation: fade-up 0.4s ease-out both;
+}
+
+.card {
+  background: #fff;
+  border: 1px solid var(--color-leaf-100);
+  border-radius: 1rem;
+  box-shadow: 0 1px 2px rgba(30, 59, 30, 0.04);
+}
+
+::selection {
+  background: var(--color-leaf-200);
+}
