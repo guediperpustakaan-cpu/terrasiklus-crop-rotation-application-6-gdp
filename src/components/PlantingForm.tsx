@@ -33,7 +33,7 @@ export function PlantingForm({
   const [force, setForce] = useState(false);
 
   useEffect(() => {
-    if (open) {
+    if (open && cropId === "") {
       setCropId(initialCropId ?? crops[0]?.id ?? "");
       setPlantedOn(today());
       setNotes("");
@@ -74,6 +74,7 @@ export function PlantingForm({
 
   return (
     <Modal
+      key={open ? "open" : "closed"}
       open={open}
       onClose={onClose}
       title="Catat Penanaman"
