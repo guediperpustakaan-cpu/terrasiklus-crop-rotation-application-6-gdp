@@ -1,12 +1,18 @@
 {
-  "name": "nextjs-postgresql-template",
+  "name": "terra-siklus-crop-rotation",
+  "version": "1.0.0",
   "private": true,
   "scripts": {
     "dev": "next dev",
     "build": "next build",
     "start": "next start",
     "lint": "eslint .",
-    "typecheck": "tsc --noEmit"
+    "typecheck": "tsc --noEmit",
+    "db:push": "drizzle-kit push",
+    "db:generate": "drizzle-kit generate",
+    "db:seed": "psql $DATABASE_URL -f schema-neon.sql",
+    "db:drop": "drizzle-kit drop",
+    "db:studio": "drizzle-kit studio"
   },
   "dependencies": {
     "@tanstack/react-query": "^5.104.4",

@@ -1,6 +1,6 @@
 "use client";
 
-import { useEffect, useMemo, useState } from "react";
+import { useMemo, useState } from "react";
 import { useMutation, useQueryClient } from "@tanstack/react-query";
 import { AlertTriangle, CheckCircle2, ShieldAlert } from "lucide-react";
 import { apiSend, today } from "@/lib/api";
@@ -27,20 +27,10 @@ export function PlantingForm({
 }: Props) {
   const qc = useQueryClient();
   const [cropId, setCropId] = useState<number | "">("");
-  const [plantedOn, setPlantedOn] = useState(today());
+  const [plantedOn, setPlantedOn] = useState("");
   const [notes, setNotes] = useState("");
   const [error, setError] = useState<string | null>(null);
   const [force, setForce] = useState(false);
-
-  useEffect(() => {
-    if (open && cropId === "") {
-      setCropId(initialCropId ?? crops[0]?.id ?? "");
-      setPlantedOn(today());
-      setNotes("");
-      setError(null);
-      setForce(false);
-    }
-  }, [open, initialCropId, crops]);
 
   const selected = crops.find((c) => c.id === cropId) ?? null;
   const check = useMemo(
@@ -122,8 +112,8 @@ export function PlantingForm({
               check.status === "aman"
                 ? "border-leaf-200 bg-leaf-50 text-leaf-800"
                 : check.status === "peringatan"
-                  ? "border-amber-200 bg-amber-50 text-amber-800"
-                  : "border-rose-200 bg-rose-50 text-rose-800"
+                ? "border-amber-200 bg-amber-50 text-amber-800"
+                : "border-rose-200 bg-rose-50 text-rose-800"
             }`}
           >
             <p className="flex items-start gap-2 font-semibold">
